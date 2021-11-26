@@ -57,17 +57,36 @@ export class ClientComponent implements OnInit {
   }
 
   
+  get references(): FormArray {
+    return this.formu.get('references') as FormArray;
+  }
 
   get nome(): FormControl {
     return this.formu.get('nome') as FormControl;
   }
 
-  get references(): FormArray {
-    return this.formu.get('references') as FormArray;
+  get profissao(): FormControl {
+    return this.formu.get('profissao') as FormControl;
+  }
+
+  get cpf(): FormControl {
+    return this.formu.get('cpf') as FormControl;
   }
 
   get email(): FormControl {
     return this.formu.get('email') as FormControl;
+  }
+
+  get nascimento(): FormControl {
+    return this.formu.get('nascimento') as FormControl;
+  }
+
+  get celular(): FormControl {
+    return this.formu.get('celular') as FormControl;
+  }
+
+  get cep(): FormControl {
+    return this.formu.get('cep') as FormControl;
   }
 
   

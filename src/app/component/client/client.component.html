@@ -7,13 +7,13 @@
         <input type="text" class="form-control" id="nome" formControlName="nome" required placeholder="Nome">
 
         <div *ngIf="this.nome.invalid && (this.nome.dirty || this.nome.touched)" class="alert alert-danger">
-          <div *ngIf="this.nome.hasError('required')">
+          <p *ngIf="this.nome.hasError('required')">
             Nome é obrigatório.
-          </div>
+          </p>
   
-          <div *ngIf="this.nome.hasError('minlength')" >
+          <p *ngIf="this.nome.hasError('minlength')" >
             Nome deve ter mais que 3 letras.
-          </div> 
+          </p> 
         </div>
 
         
@@ -23,32 +23,88 @@
     <div class="form-group col-md-6">
       <label for="profissao">Profissão</label>
       <input type="text" class="form-control" id="profissao" formControlName="profissao" required placeholder="Profissão">
+    
+      <div *ngIf="this.profissao.invalid && (this.profissao.dirty || this.profissao.touched)" class="alert alert-danger">
+        <p *ngIf="this.nome.hasError('required')">
+          Profissão é obrigatório.
+        </p>
+
+        <p *ngIf="this.profissao.hasError('minlength')" >
+          Profissão deve ter mais que 3 letras.
+        </p> 
+      </div>
+
     </div>
     
     <div class="form-group col-md-6">
       <label for="cpf">CPF</label>
       <input type="text" class="form-control" id="cpf" formControlName="cpf" placeholder="Apenas números">
-    </div> 
+
+      <div *ngIf="this.cpf.invalid && (this.cpf.dirty || this.cpf.touched)" class="alert alert-danger">
+        <p *ngIf="this.cpf.hasError('required')">
+          CPF é obrigatório.
+        </p>
+      </div>
+
+    </div>
 
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="email">E-mail</label>
         <input type="email" class="form-control" id="email" formControlName="email" placeholder="nome@email.com.br">
+
+        <!-- <div *ngIf="this.email.touched" class="alert alert-danger">
+          <p *ngIf="this.email.hasError('required')">
+            E-mail é obrigatório.
+          </p>
+        </div> -->
+
+        <div *ngIf="email.errors" class="alert alert-danger">
+          <p *ngIf="email.errors?.email">
+              Digite um e-mail válido.
+        </div>
+
       </div>
     </div>
 
     <div class="col-2">
         <label for="nascimento" class="form-label">Data de Nascimento</label>
-        <input type="date" class="form-control" formControlName="nascimento" id="nasciemnto">        
+        <input type="date" class="form-control" formControlName="nascimento" id="nasciemnto">
+        
+        <div *ngIf="this.nascimento.invalid && (this.nascimento.dirty || this.nascimento.touched)" class="alert alert-danger">
+          <p *ngIf="this.nascimento.hasError('required')">
+            Campo é obrigatório.
+          </p>
+        </div>
+
     </div>
+
       <div class="form-group col-md-2">
         <label for="celular">Celular</label>
         <input type="text" class="form-control" id="celular" formControlName="celular" placeholder="(00) 00000-0000">
+
+        <div *ngIf="this.celular.invalid && (this.celular.dirty || this.celular.touched)" class="alert alert-danger">
+          <p *ngIf="this.celular.hasError('required')">
+            Campo é obrigatório.
+          </p>
+        </div>
+
       </div>
+
     <div class="form-group col-md-2">
       <label for="cep">CEP</label>
-      <input type="text" class="form-control" id="celular" formControlName="celular" placeholder="EX: 81520-380">
+      <input type="text" class="form-control" id="celular" formControlName="cep" placeholder="EX: 81520-380">
+
+      <div *ngIf="this.cep.invalid && (this.cep.dirty || this.cep.touched)" class="alert alert-danger">
+        <p *ngIf="this.cep.hasError('required')">
+          Campo é obrigatório.
+        </p>
+      </div>
+
     </div>
+
+    <br aria-hidden="true"/>
+  
 
   <button [routerLink]="['']" type="button" class="btn btn-warning btn-lg">Cancelar</button>
   <button [routerLink]="['/estate']" type="button" class="btn btn-success btn-lg">Prosseguir</button>
