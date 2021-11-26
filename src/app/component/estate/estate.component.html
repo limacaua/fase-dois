@@ -1,0 +1,40 @@
+<app-header></app-header>
+
+<form>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="imovel">Imóvel</label>        
+        <select role="tipo" class="form-control">
+          <option >Residencial</option>
+          <option >Comercial</option>          
+      </select>
+      </div>
+    </div>  
+      <div class="form-group col-md-6">
+        <label for="renda">Renda mensal</label>
+        <input role="text" class="form-control" placeholder="Renda Mensal">
+    </div>
+    
+    <div class="form-group col-md-6">
+      <label for="valor">Valor do Imóvel</label>
+      <input role="text" class="form-control"  placeholder="Valor do Imóvel">
+    </div>    
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="entrada">Valor da Entrada</label>
+        <input role="text" class="form-control" placeholder="R$">
+      </div>
+    </div>
+    <div class="col-2">
+        <label for="parcelas" class="form-label">Em quantas parcelas deseja pagar?</label>
+        <input role="text" class="form-control" placeholder="Max 360X">        
+    </div>
+       
+    <button [routerLink]="['/client']" type="button" class="btn btn-warning btn-lg">Cancelar</button>
+     
+    <button type="button" class="btn btn-success btn-lg">Simular</button> 
+
+  </form>
+
+
+
