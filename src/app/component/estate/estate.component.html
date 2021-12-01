@@ -1,38 +1,81 @@
 <app-header></app-header>
 
-<form>
+<form [formGroup]="formuEstate">
     <div class="form-row">
-      <div class="form-group col-md-6">
+      <div class="form-group col-md-3">
         <label for="imovel">Imóvel</label>        
-        <select role="tipo" class="form-control">
+        <select role="tipo" class="form-control" formControlName="imovel">
           <option >Residencial</option>
           <option >Comercial</option>          
       </select>
-      </div>
+
+      <div *ngIf="this.imovel.invalid && (this.imovel.dirty || this.imovel.touched)" class="alert alert-danger">
+        <p *ngIf="this.imovel.hasError('required')">
+          Campo é obrigatório.
+        </p>
+      </div>  
+
+      </div>      
+
     </div>  
-      <div class="form-group col-md-6">
+      <div class="form-group col-md-3">
         <label for="renda">Renda mensal</label>
-        <input role="text" class="form-control" placeholder="Renda Mensal">
+        <input role="text" class="form-control" mask="separator" prefix="R$ " thousandSeparator="." suffix=",00" formControlName="renda" placeholder="R$">
+
+        <div *ngIf="this.renda.invalid && (this.renda.dirty || this.renda.touched)" class="alert alert-danger">
+          <p *ngIf="this.renda.hasError('required')">
+            Campo é obrigatório.
+          </p>
+        </div>  
+
     </div>
     
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-3">
       <label for="valor">Valor do Imóvel</label>
-      <input role="text" class="form-control"  placeholder="Valor do Imóvel">
-    </div>    
+      <input role="text" class="form-control" mask="separator" prefix="R$ " thousandSeparator="." suffix=",00" formControlName="valor" placeholder="R$">
+
+      <div *ngIf="this.valor.invalid && (this.valor.dirty || this.valor.touched)" class="alert alert-danger">
+        <p *ngIf="this.valor.hasError('required')">
+          Campo é obrigatório.
+        </p>
+      </div>  
+
+    </div>   
+
     <div class="form-row">
-      <div class="form-group col-md-6">
+      <div class="form-group col-md-3">
         <label for="entrada">Valor da Entrada</label>
-        <input role="text" class="form-control" placeholder="R$">
+        <input role="text" class="form-control" mask="separator" prefix="R$ " thousandSeparator="." suffix=",00" formControlName="entrada" placeholder="R$">
       </div>
+
+      <div *ngIf="this.entrada.invalid && (this.entrada.dirty || this.entrada.touched)" class="alert alert-danger">
+        <p *ngIf="this.entrada.hasError('required')">
+          Campo é obrigatório.
+        </p>
+      </div>  
+
     </div>
+
     <div class="col-2">
         <label for="parcelas" class="form-label">Em quantas parcelas deseja pagar?</label>
-        <input role="text" class="form-control" placeholder="Max 360X">        
+        <input role="text" class="form-control" formControlName="parcelas" placeholder="Max 360 parcelas">
+        
+        <div *ngIf="this.parcelas.invalid && (this.parcelas.dirty || this.parcelas.touched)" class="alert alert-danger">
+          <p *ngIf="this.parcelas.hasError('required')">
+            Campo é obrigatório.
+          </p>
+
+          <p *ngIf="parcelas.errors?.muitasParcelas">
+            360 é o máximo de parcelas.
+          </p>
+        </div>  
+
     </div>
+
+    <br aria-hidden="true"/>
        
-    <button [routerLink]="['/client']" type="button" class="btn btn-warning btn-lg">Cancelar</button>
-     
-    <button type="button" class="btn btn-success btn-lg">Simular</button> 
+    <button [routerLink]="['/client']" type="button" class="btn btn-warning btn-lg">Cancelar</button>     
+    <button type="button" class="btn btn-success btn-lg" [ngClass]="{'disabled': this.formuEstate.invalid}" (click)="dadosValidacao()">Simular</button> 
 
   </form>
 

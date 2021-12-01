@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { Pessoa } from '../shared/pessoa.model'
+import { Validacoes } from '../shared/underage'
 
 @Component({
   selector: 'app-client',
@@ -15,7 +16,7 @@ export class ClientComponent implements OnInit {
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    this.initializeForm();        
+    this.initializeFormu();        
   }
 
   sendData() {
@@ -33,7 +34,7 @@ export class ClientComponent implements OnInit {
     )
   }
 
-  initializeForm(): void {
+  initializeFormu(): void {
     this.formu = this.fb.group({ 
       nome: [null, [
         Validators.required,
@@ -48,7 +49,7 @@ export class ClientComponent implements OnInit {
 
       email: [null, [Validators.email]],
 
-      nascimento: [null, [Validators.required,]],
+      nascimento: [null, [Validators.required, Validacoes.MaiorQue18Anos]],
 
       celular: [null, [Validators.required]],
 

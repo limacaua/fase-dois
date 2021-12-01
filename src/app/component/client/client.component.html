@@ -1,8 +1,8 @@
 <app-header></app-header>
 
-  <form [formGroup]="formu" >
+  <form [formGroup]="formu" (ngSubmit)="sendData()" >
     <div class="form-row">
-      <div class="form-group col-md-6">
+      <div class="form-group col-md-3">
         <label for="nome">Nome</label>
         <input type="text" class="form-control" id="nome" formControlName="nome" required placeholder="Nome">
 
@@ -20,7 +20,7 @@
      </div>
     </div>
 
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-3">
       <label for="profissao">Profissão</label>
       <input type="text" class="form-control" id="profissao" formControlName="profissao" required placeholder="Profissão">
     
@@ -36,9 +36,9 @@
 
     </div>
     
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-3">
       <label for="cpf">CPF</label>
-      <input type="text" class="form-control" id="cpf" formControlName="cpf" placeholder="Apenas números">
+      <input type="text" class="form-control" id="cpf" formControlName="cpf" mask="000.000.000-00" placeholder="Apenas números">
 
       <div *ngIf="this.cpf.invalid && (this.cpf.dirty || this.cpf.touched)" class="alert alert-danger">
         <p *ngIf="this.cpf.hasError('required')">
@@ -49,7 +49,7 @@
     </div>
 
     <div class="form-row">
-      <div class="form-group col-md-6">
+      <div class="form-group col-md-3">
         <label for="email">E-mail</label>
         <input type="email" class="form-control" id="email" formControlName="email" placeholder="nome@email.com.br">
 
@@ -57,7 +57,7 @@
           <p *ngIf="this.email.hasError('required')">
             E-mail é obrigatório.
           </p>
-        </div> -->
+        </div> -->        
 
         <div *ngIf="email.errors" class="alert alert-danger">
           <p *ngIf="email.errors?.email">
@@ -81,7 +81,7 @@
 
       <div class="form-group col-md-2">
         <label for="celular">Celular</label>
-        <input type="text" class="form-control" id="celular" formControlName="celular" placeholder="(00) 00000-0000">
+        <input type="text" class="form-control" id="celular" formControlName="celular" mask="(00)00000-0000" placeholder="(00) 00000-0000">
 
         <div *ngIf="this.celular.invalid && (this.celular.dirty || this.celular.touched)" class="alert alert-danger">
           <p *ngIf="this.celular.hasError('required')">
@@ -93,7 +93,7 @@
 
     <div class="form-group col-md-2">
       <label for="cep">CEP</label>
-      <input type="text" class="form-control" id="celular" formControlName="cep" placeholder="EX: 81520-380">
+      <input type="text" class="form-control" id="celular" formControlName="cep" mask="00000-000" placeholder="EX: 81520-380">
 
       <div *ngIf="this.cep.invalid && (this.cep.dirty || this.cep.touched)" class="alert alert-danger">
         <p *ngIf="this.cep.hasError('required')">
@@ -107,7 +107,7 @@
   
 
   <button [routerLink]="['']" type="button" class="btn btn-warning btn-lg">Cancelar</button>
-  <button [routerLink]="['/estate']" type="button" class="btn btn-success btn-lg">Prosseguir</button>
+  <button [routerLink]="['/estate']" [ngClass]="{'disabled': this.formu.invalid}" type="button" class="btn btn-success btn-lg">Prosseguir</button>
         
   </form>
 
