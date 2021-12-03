@@ -20,7 +20,7 @@
     </div>  
       <div class="form-group col-md-3">
         <label for="renda">Renda mensal</label>
-        <input role="text" class="form-control" mask="separator" prefix="R$ " thousandSeparator="." suffix=",00" formControlName="renda" placeholder="R$">
+        <input role="text" class="form-control" [dropSpecialCharacters]="true" mask="separator" prefix="R$ " thousandSeparator="." suffix=",00" formControlName="renda" placeholder="R$">
 
         <div *ngIf="this.renda.invalid && (this.renda.dirty || this.renda.touched)" class="alert alert-danger">
           <p *ngIf="this.renda.hasError('required')">
@@ -32,7 +32,7 @@
     
     <div class="form-group col-md-3">
       <label for="valor">Valor do Imóvel</label>
-      <input role="text" class="form-control" mask="separator" prefix="R$ " thousandSeparator="." suffix=",00" formControlName="valor" placeholder="R$">
+      <input role="text" class="form-control" [dropSpecialCharacters]="true" mask="separator" prefix="R$ " thousandSeparator="." suffix=",00" formControlName="valor" placeholder="R$">
 
       <div *ngIf="this.valor.invalid && (this.valor.dirty || this.valor.touched)" class="alert alert-danger">
         <p *ngIf="this.valor.hasError('required')">
@@ -41,11 +41,11 @@
       </div>  
 
     </div>   
-
+   
     <div class="form-row">
       <div class="form-group col-md-3">
         <label for="entrada">Valor da Entrada</label>
-        <input role="text" class="form-control" mask="separator" prefix="R$ " thousandSeparator="." suffix=",00" formControlName="entrada" placeholder="R$">
+        <input role="text" class="form-control" [dropSpecialCharacters]="true" mask="separator" prefix="R$ " thousandSeparator="." suffix=",00" formControlName="entrada" placeholder="R$">
       </div>
 
       <div *ngIf="this.entrada.invalid && (this.entrada.dirty || this.entrada.touched)" class="alert alert-danger">

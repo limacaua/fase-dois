@@ -38,7 +38,7 @@
     
     <div class="form-group col-md-3">
       <label for="cpf">CPF</label>
-      <input type="text" class="form-control" id="cpf" formControlName="cpf" mask="000.000.000-00" placeholder="Apenas números">
+      <input type="text" class="form-control" id="cpf" formControlName="cpf" [dropSpecialCharacters]="true" mask="000.000.000-00" placeholder="Apenas números">
 
       <div *ngIf="this.cpf.invalid && (this.cpf.dirty || this.cpf.touched)" class="alert alert-danger">
         <p *ngIf="this.cpf.hasError('required')">
@@ -81,7 +81,7 @@
 
       <div class="form-group col-md-2">
         <label for="celular">Celular</label>
-        <input type="text" class="form-control" id="celular" formControlName="celular" mask="(00)00000-0000" placeholder="(00) 00000-0000">
+        <input type="text" class="form-control" id="celular" formControlName="celular" [dropSpecialCharacters]="true" mask="(00)00000-0000" placeholder="(00) 00000-0000">
 
         <div *ngIf="this.celular.invalid && (this.celular.dirty || this.celular.touched)" class="alert alert-danger">
           <p *ngIf="this.celular.hasError('required')">
@@ -93,7 +93,7 @@
 
     <div class="form-group col-md-2">
       <label for="cep">CEP</label>
-      <input type="text" class="form-control" id="celular" formControlName="cep" mask="00000-000" placeholder="EX: 81520-380">
+      <input type="text" class="form-control" id="celular" formControlName="cep" [dropSpecialCharacters]="true" mask="00000-000" placeholder="EX: 81520-380">
 
       <div *ngIf="this.cep.invalid && (this.cep.dirty || this.cep.touched)" class="alert alert-danger">
         <p *ngIf="this.cep.hasError('required')">
@@ -103,8 +103,7 @@
 
     </div>
 
-    <br aria-hidden="true"/>
-  
+    <br aria-hidden="true"/>  
 
   <button [routerLink]="['']" type="button" class="btn btn-warning btn-lg">Cancelar</button>
   <button [routerLink]="['/estate']" [ngClass]="{'disabled': this.formu.invalid}" type="button" class="btn btn-success btn-lg">Prosseguir</button>

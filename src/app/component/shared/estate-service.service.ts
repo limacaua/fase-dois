@@ -10,13 +10,13 @@ export class EstateServiceService {
 
   constructor() { }
 
-  // sendData(data: AprovedModel) {
-  //   EstateServiceService.model = data;
-  // }
-
   sendData(data: AprovedModel) {
-    localStorage.setItem(data.valorParcela.toString(), JSON.stringify(data));
+    EstateServiceService.model = data;
   }
+
+  // sendData(data: AprovedModel) {
+  //   localStorage.setItem(data.valorParcela.toString(), JSON.stringify(data));
+  // }
   
   returnData(): AprovedModel {
     return EstateServiceService.model;

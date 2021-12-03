@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { EstateServiceService } from '../shared/estate-service.service';
-import { AprovedModel } from '../shared/aprovedModel';
 
 @Component({
   selector: 'app-aproved',
@@ -11,8 +10,8 @@ export class AprovedComponent implements OnInit {
 
   taxa = 7;
 
-  parcelaInicialTotal!: string;
-  aprovadoValorTotal!: string;
+  parcelaInicialTotal!: any;
+  aprovadoValorTotal!: any;
 
   constructor() { }
 
