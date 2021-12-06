@@ -11,7 +11,6 @@ import { EstateComponent } from './component/estate/estate.component';
 import { ClientComponent } from './component/client/client.component';
 import { AprovedComponent } from './component/aproved/aproved.component';
 import { DisapprovedComponent } from './component/disapproved/disapproved.component';
-import { AlessandroComponent } from './app/component/alessandro/alessandro.component';
 
 
 
@@ -23,8 +22,7 @@ import { AlessandroComponent } from './app/component/alessandro/alessandro.compo
     ClientComponent,
     EstateComponent,
     AprovedComponent,
-    DisapprovedComponent,
-    AlessandroComponent,
+    DisapprovedComponent
     
   ],
   imports: [
